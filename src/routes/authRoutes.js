@@ -11,18 +11,39 @@ const generateToken = (userId) => {
 
 router.post('/register', async (req, res) => {
     try {
-        const {email, username, password } = req.body; // destructuring the request body to get username and password
-
+        const {email, username, password } = req.body; // destructuring the request body to get username and password        
         if (!email || !username || !password) {
             return res.status(400).json({ message: 'Please fill all fields' });
+        }        // Email validation
+        if (!email.includes('@') || !email.includes('.')) {
+            return res.status(400).json({ message: 'Please enter a valid email address' });
         }
 
-        if (password.length < 6) {
-            return res.status(400).json({ message: 'Password must be at least 6 characters' });
+        // Password validation
+        if (password.length < 8) {
+            return res.status(400).json({ message: 'Password must be at least 8 characters' });
         }
 
-        if (username.length < 3) {
-            return res.status(400).json({ message: 'Username must be at least 3 characters' });
+        // Check for password complexity
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasNumbers = /\d/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+        if (!hasUpperCase || !hasLowerCase || !hasNumbers || !hasSpecialChar) {
+            return res.status(400).json({ 
+                message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*(),.?":{}|<>)'
+            });
+        }
+
+        // Username validation
+        if (username.length < 4) {
+            return res.status(400).json({ message: 'Username must be at least 4 characters' });
+        }
+
+        // Username can be any case but must contain only letters and numbers
+        if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            return res.status(400).json({ message: 'Username can only contain letters and numbers' });
         }
         // Check if user already exists
         const existingUser = await User.findOne({ $or: [{ email }, { username }] });
