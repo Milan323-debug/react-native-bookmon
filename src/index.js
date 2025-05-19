@@ -7,19 +7,15 @@ import authRoutes from "./routes/authRoutes.js"; //importing authRoutes from aut
 import bookRoutes from "./routes/bookRoutes.js"; //importing bookRoutes from bookRoutes.js
 import { connectDB } from "./lib/db.js";
 
-
 const app = express(); //creating new instance of express
 const PORT = process.env.PORT || 3000;
 
 job.start(); //starting the cron job
-app.use(express.json()); //middleware to parse JSON data
+app.use(express.json({ limit: '10mb' })); // increased payload limit
 app.use(cors()); //middleware to enable CORS
-
 
 app.use("/api/auth", authRoutes);
 app.use("/api/books", bookRoutes);
-
-
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
