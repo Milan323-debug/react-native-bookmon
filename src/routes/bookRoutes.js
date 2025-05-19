@@ -27,9 +27,9 @@ router.post("/", protectRoute, async (req, res) => {
     });
     await newBook.save();
     res.status(201).json(newBook);
-  }catch(err){
+  } catch (err) {
     console.error("Error creating book:", err);
-    res.status(500).json({message: err.message});
+    res.status(500).json({ message: err.message });
   }
 });
 
