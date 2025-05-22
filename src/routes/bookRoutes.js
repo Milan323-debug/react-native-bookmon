@@ -38,21 +38,21 @@ router.post("/", protectRoute, async (req, res) => {
 //pagination => infinite scroll
 router.get("/", protectRoute, async (req, res) => {
   try {
-    const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 5;
+    const page = req.query.page || 1;
+    const limit = req.query.limit || 5;
     const skip = (page - 1) * limit;
 
-    const books = await Book.find().sort({ createdAt: -1 })
+    const books = (await Book.find().sort({ createdAt: -1 })
       .skip(skip)
       .limit(limit)
-      .populate("user", "username profileImage");
+      .populate("user", "username profileImage")).filter(book => book.user !== null);
 
     const total = await Book.countDocuments();
-    res.json({
-      books,
-      currentPage: page,
-      totalBooks: total,
-      totalPages: Math.ceil(total / limit),
+    res.send({
+        books,
+        currentPage: page,
+        totalBooks: total,
+        totalPages: Math.ceil(total / limit),
     });
   } catch (err) {
     console.error("Error fetching books:", err);
