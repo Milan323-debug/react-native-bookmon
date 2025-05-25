@@ -91,7 +91,7 @@ router.delete("/:id", protectRoute, async (req, res) => {
         return res.status(500).json({ message: "Error deleting image from Cloudinary" });
       }
     }
-    await Book.deleteOne();
+    await Book.deleteOne({ _id: req.params.id }); // <-- fix: pass filter to deleteOne
     res.status(200).json({ message: "Book deleted successfully" });
   } catch (err) {
     console.error("Error deleting book:", err);
