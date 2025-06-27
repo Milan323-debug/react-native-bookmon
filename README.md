@@ -1,6 +1,7 @@
 # Book Recommender App
 
 A full-stack Book Recommendation application with a Node.js/Express backend and a React Native (Expo) mobile frontend. Users can sign up, log in, add books, rate them, and view recommendations.
+![WhatsApp Image 2025-06-27 at 21 18 33_68084799](https://github.com/user-attachments/assets/5de898dc-cba2-4b61-bcd6-958b0c9ea302)
 
 ## Features
 
