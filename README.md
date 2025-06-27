@@ -10,15 +10,12 @@ A full-stack Book Recommendation application with a Node.js/Express backend and 
   <tr>
     <td><img src="https://github.com/user-attachments/assets/5de898dc-cba2-4b61-bcd6-958b0c9ea302" width="200"/><br/><sub>Sign Up Screen</sub></td>
     <td><img src="https://github.com/user-attachments/assets/7a14483d-3b68-43f1-a8fe-46b02584eeb4" width="200"/><br/><sub>Login Screen</sub></td>
-    <td><img src="https://github.com/user-attachments/assets/a2877f77-0daf-4a9d-903c-812f524658c6" width="200"/><br/><sub>Home Screen</sub></td>
+    <td><img src="https://github.com/user-attachments/assets/301579fa-8d88-4ebd-8b61-f3db543fa5da" width="200"/><br/><sub>Profile Screen</sub></td>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/301579fa-8d88-4ebd-8b61-f3db543fa5da" width="200"/><br/><sub>Create Book</sub></td>
-    <td><img src="https://github.com/user-attachments/assets/81036e1a-73b8-47d7-b03e-06acd11a8f32" width="200"/><br/><sub>Profile (With Book)</sub></td>
-    <td><img src="https://github.com/user-attachments/assets/1121aba1-89a0-4357-b371-a4581e674a46" width="200"/><br/><sub>Profile (Empty)</sub></td>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/444e5674-dee5-4126-bbf8-b0898e84a367" width="200"/><br/><sub>Book Details</sub></td>
+    <td><img src="https://github.com/user-attachments/assets/a2877f77-0daf-4a9d-903c-812f524658c6" width="200"/><br/><sub>Profile Screen(With Recomended Books)</sub></td>
+    <td><img src="https://github.com/user-attachments/assets/1121aba1-89a0-4357-b371-a4581e674a46" width="200"/><br/><sub>Create Book</sub></td>
+    <td><img src="https://github.com/user-attachments/assets/444e5674-dee5-4126-bbf8-b0898e84a367" width="200"/><br/><sub>Home Page</sub></td>
   </tr>
 </table>
 
